@@ -5,7 +5,7 @@ It is recommended to first read datasets/preprocess/README.md
 """
 import argparse
 import config as cfg
-from datasets.preprocess import h36m_extract,\
+from spin.datasets.preprocess import h36m_extract,\
                                 pw3d_extract, \
                                 mpi_inf_3dhp_extract, \
                                 lsp_dataset_extract,\

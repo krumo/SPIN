@@ -4,15 +4,15 @@ import numpy as np
 from torchgeometry import angle_axis_to_rotation_matrix, rotation_matrix_to_angle_axis
 import cv2
 
-from datasets import MixedDataset
-from models import hmr, SMPL
-from smplify import SMPLify
-from utils.geometry import batch_rodrigues, perspective_projection, estimate_translation
-from utils.renderer import Renderer
-from utils import BaseTrainer
+from spin.datasets import MixedDataset
+from spin.models import hmr, SMPL
+from spin.smplify import SMPLify
+from spin.utils.geometry import batch_rodrigues, perspective_projection, estimate_translation
+from spin.utils.renderer import Renderer
+from spin.utils import BaseTrainer
 
-import config
-import constants
+import spin.config
+import spin.constants
 from .fits_dict import FitsDict
 
 

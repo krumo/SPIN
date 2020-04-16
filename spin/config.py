@@ -16,12 +16,12 @@ PW3D_ROOT = ''
 UPI_S1H_ROOT = ''
 
 # Output folder to save test/train npz files
-DATASET_NPZ_PATH = 'data/dataset_extras'
+DATASET_NPZ_PATH = '/local/home/haowang/projects/SPIN/data/dataset_extras'
 
 # Output folder to store the openpose detections
 # This is requires only in case you want to regenerate 
 # the .npz files with the annotations.
-OPENPOSE_PATH = 'datasets/openpose'
+OPENPOSE_PATH = '/local/home/haowang/projects/SPIN/datasets/openpose'
 
 # Path to test/train npz files
 DATASET_FILES = [ {'h36m-p1': join(DATASET_NPZ_PATH, 'h36m_valid_protocol1.npz'),
@@ -53,10 +53,10 @@ DATASET_FOLDERS = {'h36m': H36M_ROOT,
                    'upi-s1h': UPI_S1H_ROOT,
                 }
 
-CUBE_PARTS_FILE = 'data/cube_parts.npy'
-JOINT_REGRESSOR_TRAIN_EXTRA = 'data/J_regressor_extra.npy'
-JOINT_REGRESSOR_H36M = 'data/J_regressor_h36m.npy'
-VERTEX_TEXTURE_FILE = 'data/vertex_texture.npy'
-STATIC_FITS_DIR = 'data/static_fits'
-SMPL_MEAN_PARAMS = 'data/smpl_mean_params.npz'
-SMPL_MODEL_DIR = 'data/smpl'
+CUBE_PARTS_FILE = '/local/home/haowang/projects/SPIN/data/cube_parts.npy'
+JOINT_REGRESSOR_TRAIN_EXTRA = '/local/home/haowang/projects/SPIN/data/J_regressor_extra.npy'
+JOINT_REGRESSOR_H36M = '/local/home/haowang/projects/SPIN/data/J_regressor_h36m.npy'
+VERTEX_TEXTURE_FILE = '/local/home/haowang/projects/SPIN/data/vertex_texture.npy'
+STATIC_FITS_DIR = '/local/home/haowang/projects/SPIN/data/static_fits'
+SMPL_MEAN_PARAMS = '/local/home/haowang/projects/SPIN/data/smpl_mean_params.npz'
+SMPL_MODEL_DIR = '/local/home/haowang/projects/SPIN/data/smpl'

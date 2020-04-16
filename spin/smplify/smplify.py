@@ -1,10 +1,10 @@
 import torch
 import os
 
-from models.smpl import SMPL
+from spin.models.smpl import SMPL
 from .losses import camera_fitting_loss, body_fitting_loss
-import config
-import constants
+import spin.config
+import spin.constants
 
 # For the GMM prior, we use the GMM implementation of SMPLify-X
 # https://github.com/vchoutas/smplify-x/blob/master/smplifyx/prior.py

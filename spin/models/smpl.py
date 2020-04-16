@@ -5,8 +5,8 @@ from smplx import SMPL as _SMPL
 from smplx.body_models import ModelOutput
 from smplx.lbs import vertices2joints
 
-import config
-import constants
+import spin.config as config
+import spin.constants as constants
 
 class SMPL(_SMPL):
     """ Extension of the official SMPL implementation to support more joints """
@@ -23,7 +23,9 @@ class SMPL(_SMPL):
         smpl_output = super(SMPL, self).forward(*args, **kwargs)
         extra_joints = vertices2joints(self.J_regressor_extra, smpl_output.vertices)
         joints = torch.cat([smpl_output.joints, extra_joints], dim=1)
-        joints = joints[:, self.joint_map, :]
+        joints = smpl_output.joints
+        # print(smpl_output.joints.shape)
+        # joints = joints[:, self.joint_map, :]
         output = ModelOutput(vertices=smpl_output.vertices,
                              global_orient=smpl_output.global_orient,
                              body_pose=smpl_output.body_pose,

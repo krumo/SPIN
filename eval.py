@@ -23,13 +23,13 @@ from collections import namedtuple
 from tqdm import tqdm
 import torchgeometry as tgm
 
-import config
-import constants
-from models import hmr, SMPL
-from datasets import BaseDataset
-from utils.imutils import uncrop
-from utils.pose_utils import reconstruction_error
-from utils.part_utils import PartRenderer
+import spin.config
+import spin.constants
+from spin.models import hmr, SMPL
+from spin.datasets import BaseDataset
+from spin.utils.imutils import uncrop
+from spin.utils.pose_utils import reconstruction_error
+from spin.utils.part_utils import PartRenderer
 
 # Define command-line arguments
 parser = argparse.ArgumentParser()

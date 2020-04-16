@@ -31,11 +31,11 @@ import cv2
 import argparse
 import json
 
-from models import hmr, SMPL
-from utils.imutils import crop
-from utils.renderer import Renderer
-import config
-import constants
+from spin.models import hmr, SMPL
+from spin.utils.imutils import crop
+from spin.utils.renderer import Renderer
+import spin.config as config
+import spin.constants as constants
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--checkpoint', required=True, help='Path to pretrained checkpoint')
@@ -117,6 +117,7 @@ if __name__ == '__main__':
 
     # Preprocess input image and generate predictions
     img, norm_img = process_image(args.img, args.bbox, args.openpose, input_res=constants.IMG_RES)
+    print(img.shape)
     with torch.no_grad():
         pred_rotmat, pred_betas, pred_camera = model(norm_img.to(device))
         pred_output = smpl(betas=pred_betas, body_pose=pred_rotmat[:,1:], global_orient=pred_rotmat[:,0].unsqueeze(1), pose2rot=False)

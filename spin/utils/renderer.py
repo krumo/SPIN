@@ -1,5 +1,6 @@
 import os
-os.environ['PYOPENGL_PLATFORM'] = 'osmesa'
+# os.environ['PYOPENGL_PLATFORM'] = 'osmesa'
+os.environ['PYOPENGL_PLATFORM'] = 'egl'
 import torch
 from torchvision.utils import make_grid
 import numpy as np
@@ -12,9 +13,11 @@ class Renderer:
     Code adapted from https://github.com/vchoutas/smplify-x
     """
     def __init__(self, focal_length=5000, img_res=224, faces=None):
+        print('defining offscreen renderer')
         self.renderer = pyrender.OffscreenRenderer(viewport_width=img_res,
                                        viewport_height=img_res,
                                        point_size=1.0)
+        print('defined offscreen renderer')
         self.focal_length = focal_length
         self.camera_center = [img_res // 2, img_res // 2]
         self.faces = faces
@@ -37,6 +40,11 @@ class Renderer:
             metallicFactor=0.2,
             alphaMode='OPAQUE',
             baseColorFactor=(0.8, 0.3, 0.3, 1.0))
+        
+        # material = pyrender.MetallicRoughnessMaterial(
+        #     metallicFactor=0.0,
+        #     alphaMode='OPAQUE',
+        #     baseColorFactor=(1.0, 1.0, 0.9, 1.0))
 
         camera_translation[0] *= -1.
 
@@ -68,7 +76,9 @@ class Renderer:
         light_pose[:3, 3] = np.array([1, 1, 2])
         scene.add(light, pose=light_pose)
 
+        print('begin rendering')
         color, rend_depth = self.renderer.render(scene, flags=pyrender.RenderFlags.RGBA)
+        print('offline rendering is done')
         color = color.astype(np.float32) / 255.0
         valid_mask = (rend_depth > 0)[:,:,None]
         output_img = (color[:, :, :3] * valid_mask +

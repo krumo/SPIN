@@ -4,8 +4,8 @@ import os
 import cv2
 from torchgeometry import angle_axis_to_rotation_matrix
 
-import config
-import constants
+import spin.config
+import spin.constants
 
 class FitsDict():
     """ Dictionary keeping track of the best fit per image in the training set """

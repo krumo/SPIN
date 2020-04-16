@@ -4,8 +4,8 @@ import numpy as np
 import os
 import pickle
 
-from utils.geometry import perspective_projection
-import constants
+from spin.utils.geometry import perspective_projection
+import spin.constants
 
 
 def gmof(x, sigma):
