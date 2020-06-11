@@ -83,4 +83,5 @@ class Renderer:
         valid_mask = (rend_depth > 0)[:,:,None]
         output_img = (color[:, :, :3] * valid_mask +
                   (1 - valid_mask) * image)
+        camera_translation[0] *= -1.
         return output_img
