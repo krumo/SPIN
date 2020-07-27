@@ -17,6 +17,10 @@ source spin/bin/activate
 pip install -U pip
 pip install -r requirements.txt
 ```
+Then Run:
+```
+python setup.py build develop
+```
 
 If you choose to use a virtual environment, please look at the [instructions](https://pyrender.readthedocs.io/en/latest/install/index.html) for installing pyrender. 
 
